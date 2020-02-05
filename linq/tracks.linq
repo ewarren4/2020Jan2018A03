@@ -1,6 +1,6 @@
 <Query Kind="Expression">
   <Connection>
-    <ID>709df223-7662-44a7-a163-cd75e912213c</ID>
+    <ID>62b8fffe-44f5-471f-8f76-a465a14b2169</ID>
     <Persist>true</Persist>
     <Server>.</Server>
     <Database>Chinook</Database>
@@ -103,16 +103,20 @@ select new
 //the cost of the playlist, and total storage size
 // for the playlist in megabytes.
 
-//Playlists, PlaylistTracks, Tracks (tables to be used)
+//Playlists,      PlaylistTracks,       Tracks (tables to be used)
+//       .Name                            .UnitPrice,.Bytes
+//         ICollection            Track
+//            Playlists         ICollection
 
-
-
-
-
-
-
-
-
+from x in Playlists
+where x.PlaylistTracks.Count()
+select new
+{
+	name = x.Name,
+	numberoftracks = x.PlaylistTracks.Count(),
+	cost = x.PlaylistTracks.Sum(plt => plt.Track.UnitPrice),
+	storage = x.PlaylistTracks.Sum(plt => plt.Tracks.Bytes/1000000.0)
+}
 
 
 
