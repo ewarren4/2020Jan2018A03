@@ -1,6 +1,6 @@
 <Query Kind="Expression">
   <Connection>
-    <ID>709df223-7662-44a7-a163-cd75e912213c</ID>
+    <ID>62b8fffe-44f5-471f-8f76-a465a14b2169</ID>
     <Persist>true</Persist>
     <Server>.</Server>
     <Database>Chinook</Database>
@@ -134,7 +134,10 @@ select new
 				}
 }
 
-
+//grouping on multiple attributes NOT a defined class
+from c in Customers
+group c by new {c.Country, c.State} into gResidence
+select gResidence
 
 
 
