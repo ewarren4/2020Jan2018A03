@@ -56,7 +56,6 @@
             <asp:Label ID="SearchArg" runat="server" ></asp:Label><br />
         </asp:Panel>
         <asp:ListView ID="TracksSelectionList" runat="server"
-            OnItemCommand="TracksSelectionList_ItemCommand"
             DataSourceID="TracksSelectionListODS">
             <AlternatingItemTemplate>
                 <tr style="background-color: #FFFFFF; color: #284775;">
